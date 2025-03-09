@@ -25,13 +25,14 @@ const getItems = async (req, res) => {
  */
 const createItem = async (req, res) => {
   try {
-    const body = req;
-    console.log(body);
+    const body = req.body;
+    console.log("Data create: ", body);
     const data = await tracksModel.create(body);
+    console.log("Data tracksModel: ", data);
     res.status(201);
     res.send({ data });
   } catch (e) {
-    handleHttpError(res, "ERROR_CREATE_ITEMS");
+    handleHttpError(res, e);
   }
 };
 

@@ -1,9 +1,5 @@
-
 const multer = require("multer"); //Es una libreria que permite subir archivos
-const express = require("express");
-const router = express.Router();
 
-//TODO http://localhost:3000/api/storage //ingresamos a una nueva ruta
 
 /**
  *  Configuracion de multer para subir archivos
@@ -27,14 +23,4 @@ const storage = multer.diskStorage({
  */
 const uploadMiddleware = multer({storage});
 
-/**
- * 
- */
-
-router.post("/", uploadMiddleware.single("myfile") ,(req,  res) => { //captura propiedad de la peticion POST
-    res.send("Storage route");
-});
-
-
-
-module.exports = router;
+module.exports = uploadMiddleware;

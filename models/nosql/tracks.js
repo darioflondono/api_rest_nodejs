@@ -9,13 +9,7 @@ const TracksSchema = new mongoose.Schema(
       type: String,
     },
     cover: {
-      type: String,
-      validate: {
-        validator: (req) => {
-          return true;
-        },
-        message: "ERROR_URL",
-      },
+      type: String
     },
     artist: {
       name: {
@@ -37,8 +31,8 @@ const TracksSchema = new mongoose.Schema(
       },
     },
     mediaId: {
-      type: mongoose.Types.ObjectId,
-    },
+      type: String
+        },
   },
   {
     versionKey: false,
